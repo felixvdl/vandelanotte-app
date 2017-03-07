@@ -6,7 +6,8 @@ import {
   Text,
   View,
   Image,
-  Linking
+  TextInput,
+  Picker
 } from 'react-native';
 import { SocialIcon } from 'react-native-elements'
 
@@ -20,8 +21,44 @@ export class Car extends Component {
   }
   render() {
     return (
-      <Text>hello</Text>
-    );
+      <View style={styles.container}>
+          <Text style={styles.heading}>
+            Join us now!
+          </Text>
+           <TextInput
+            onChangeText={ (text)=> this.setState({email: text}) }
+            style={styles.input} placeholder="List price (incl. the VAT actually paid)"
+            clearButtonMode= 'while-editing'>
+          </TextInput>
+
+  {/*
+          <TextInput
+            onChangeText={ (text)=> this.setState({name: text}) }
+            style={styles.input} placeholder="Name">
+          </TextInput> */}
+
+          <TextInput
+            onChangeText={ (text)=> this.setState({password: text}) }
+            style={styles.input}
+            placeholder="Diesel or Petrol"
+            secureTextEntry={true}
+            clearButtonMode= 'while-editing'>
+          </TextInput>
+
+          <TextInput
+            onChangeText={ (text)=> this.setState({password_confirmation: text}) }
+            style={styles.input}
+            placeholder="CO² emission (g/km)"
+            secureTextEntry={true}
+            clearButtonMode= 'while-editing'>
+          </TextInput>
+
+          <TouchableHighlight  style={styles.button}>
+            <Text style={styles.buttonText}>
+              calculate
+            </Text>
+          </TouchableHighlight>
+        </View>    );
   }
 }
 
@@ -32,48 +69,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     padding: 10,
-    paddingTop: 150
+    paddingTop: 120
   },
-  logo: {
-    width: 50,
-    height: 60,
-    borderRadius: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 30,
-    top: 50
+  input: {
+    height: 50,
+    marginTop: 10,
+    padding: 4,
+    fontSize: 18,
+    borderWidth: 0.5,
+    borderColor: '#e2e6e9'
   },
-  buttonLogin: {
-    height: 30,
+  button: {
+    height: 50,
     backgroundColor: '#002445',
-    width: 350,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 3
-
-  },
-  buttonRegister: {
-    height: 30,
-    backgroundColor: '#002445',
-    width: 350,
-    alignItems: 'center',
-    marginTop: 180,
-    justifyContent: 'center',
-    borderRadius: 3
+    alignSelf: 'stretch',
+    marginTop: 10,
+    justifyContent: 'center'
   },
   buttonText: {
-    fontSize: 14,
-    color: 'white',
+    fontSize: 22,
+    color: '#FFF',
     alignSelf: 'center'
   },
-  description: {
-    fontSize:12,
-    color: '#a1b2ce',
-    marginBottom: 20
+  heading: {
+    fontSize: 30,
+    color: 'white'
   },
-  social: {
-    height: 40,
-    width: 40,
-    top: 70
+  error: {
+    color: 'red',
+    paddingTop: 10
+  },
+  loader: {
+    marginTop: 20
   }
 });
