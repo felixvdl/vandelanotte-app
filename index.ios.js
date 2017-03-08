@@ -9,6 +9,9 @@ import {
 } from 'react-native';
 import { Home } from './src/app/home'
 import { Car } from './src/app/car'
+import { CarData } from './src/app/carData'
+import { House } from './src/app/house'
+import { HouseData } from './src/app/houseData'
 
 
 class Main extends Component {
@@ -20,9 +23,15 @@ class Main extends Component {
     if(route.name == 'first') {
       return <Car navigator={navigator} />
     }
-    // if(route.name == 'second') {
-    //   return <Register navigator={navigator} />
-    // }
+    if(route.name == 'second') {
+      return <House navigator={navigator} />
+    }
+    if(route.name == 'cardata') {
+      return <CarData navigator={navigator} />
+    }
+    if(route.name == 'housedata') {
+      return <HouseData navigator={navigator} />
+    }
   }
   render() {
     return (

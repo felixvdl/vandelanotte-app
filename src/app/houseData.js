@@ -16,7 +16,7 @@ import {Grid, Col, Icon, SocialIcon} from 'react-native-elements';
 
 let { height, width } = Dimensions.get('window')
 
-export class CarData extends Component {
+export class HouseData extends Component {
 
   navigate(routeName) {
     this.props.navigator.push({
@@ -29,7 +29,7 @@ export class CarData extends Component {
         <View style={styles.header}>
           <View style={styles.return}>
             <Icon
-              onPress={ this.navigate.bind(this, 'first') }
+              onPress={ this.navigate.bind(this, 'second') }
               name='keyboard-arrow-left'
               color= 'green'
               size= {40}
@@ -40,95 +40,71 @@ export class CarData extends Component {
             style= {{width: 40, height: 40}}
           />
         </View>
-        <View style={styles.result}>
-          <Text style={{color: '#1F95D2', fontWeight: 'bold'}}> Results </Text>
-        </View>
+
         <View style={styles.percentage}>
-          <Text style={{color: 'white', fontSize: 11}}> Percentage: 8,06%</Text>
+          <Text style={{color: 'white', fontSize: 11}}> Resultaat</Text>
         </View>
         <View style={styles.data1}>
           <Grid>
-            <Col style={{alignItems:'center'}}>
+            <Col>
               <View style={styles.dataRowLeft}>
-                <Text style={styles.dataHeader}>                                                                 </Text>
+                <Text style={styles.dataHeader}></Text>
               </View>
-              <Text style={styles.dataText}> 0 - 1 year</Text>
-              <Text style={styles.dataText}> 2 year</Text>
-              <Text style={styles.dataText}> 3 year</Text>
-              <Text style={styles.dataText}> 4 year</Text>
-              <Text style={styles.dataText}> 5 year</Text>
-              <Text style={styles.dataText}> 5 + year</Text>
             </Col>
-            <Col>
-              <View style={styles.dataRow}>
-                <Text style={styles.dataHeader}>BIK (6/7)</Text>
-              </View>
-              <Text style={styles.dataText}>14.742,86</Text>
-              <Text style={styles.dataText}>13.858,29</Text>
-              <Text style={styles.dataText}>12.973,71</Text>
-              <Text style={styles.dataText}>12.089,14</Text>
-              <Text style={styles.dataText}>11.204,57</Text>
-              <Text style={styles.dataText}>10.320,00</Text>
+          </Grid>
+          <Grid>
+            <Col style={{alignItems:'center',marginTop: -0.03 * height}}>
+              <Text style={styles.dataText}>niet geïndexeerd kad. inkomen</Text>
+              <Text style={styles.dataText}>geïndexeerd kad. inkomen</Text>
             </Col>
-            <Col>
-              <View style={styles.dataRowRight}>
-                <Text style={styles.dataHeader}>BIK (MONTH)</Text>
-              </View>
+            <Col style={{alignItems:'center', marginTop: -0.03 * height}}>
               <Text style={styles.dataText}>1.228,57</Text>
               <Text style={styles.dataText}>1.154,86</Text>
-              <Text style={styles.dataText}>1.081,14</Text>
-              <Text style={styles.dataText}>1.007,43</Text>
-              <Text style={styles.dataText}>933,71</Text>
-              <Text style={styles.dataText}>860,00</Text>
+
             </Col>
           </Grid>
 
         </View>
         <View style={styles.data2}>
           <Grid>
-            <Col style={{alignItems:'center'}}>
+            <Col>
               <View style={styles.dataRowLeft}>
-                <Text style={styles.dataHeader}>   {"\n"}                                        </Text>
+                <Text style={styles.dataHeader}>Niet Gemeubeld</Text>
               </View>
-              <Text style={styles.dataText}> 0 - 1 year</Text>
-              <Text style={styles.dataText}> 2 year</Text>
-              <Text style={styles.dataText}> 3 year</Text>
-              <Text style={styles.dataText}> 4 year</Text>
-              <Text style={styles.dataText}> 5 year</Text>
-              <Text style={styles.dataText}> 5 + year</Text>
             </Col>
-            <Col>
-              <View style={styles.dataRow}>
-                <Text style={styles.dataHeader}>Rejected expense/year</Text>
-              </View>
-              <Text style={styles.dataText}>14.742,86</Text>
-              <Text style={styles.dataText}>13.858,29</Text>
-              <Text style={styles.dataText}>12.973,71</Text>
-              <Text style={styles.dataText}>12.089,14</Text>
-              <Text style={styles.dataText}>11.204,57</Text>
-              <Text style={styles.dataText}>10.320,00</Text>
+          </Grid>
+          <Grid>
+            <Col style={{alignItems:'center', marginTop: -0.03 * height}}>
+              <Text style={styles.dataText}>huurvoordeel oud</Text>
+              <Text style={styles.dataText}>huurvoordeel nieuw</Text>
+              <Text style={styles.dataText}>verschil</Text>
             </Col>
-            <Col>
-              <View style={styles.dataRow}>
-                <Text style={styles.dataHeader}>Corporate {"\n"}tax</Text>
-              </View>
-              <Text style={styles.dataText}>14.742,86</Text>
-              <Text style={styles.dataText}>13.858,29</Text>
-              <Text style={styles.dataText}>12.973,71</Text>
-              <Text style={styles.dataText}>12.089,14</Text>
-              <Text style={styles.dataText}>11.204,57</Text>
-              <Text style={styles.dataText}>10.320,00</Text>
-            </Col>
-            <Col>
-              <View style={styles.dataRowRight}>
-                <Text style={styles.dataHeader}>Income Tax (À 52,50 %)</Text>
-              </View>
+            <Col style={{alignItems:'center', marginTop: -0.03 * height}}>
+
               <Text style={styles.dataText}>1.228,57</Text>
               <Text style={styles.dataText}>1.154,86</Text>
               <Text style={styles.dataText}>1.081,14</Text>
-              <Text style={styles.dataText}>1.007,43</Text>
-              <Text style={styles.dataText}>933,71</Text>
-              <Text style={styles.dataText}>860,00</Text>
+            </Col>
+          </Grid>
+        </View>
+        <View style={styles.data3}>
+          <Grid>
+            <Col>
+              <View style={styles.dataRowLeft}>
+                <Text style={styles.dataHeader}>Gemeubeld</Text>
+              </View>
+            </Col>
+          </Grid>
+          <Grid>
+            <Col style={{alignItems:'center', marginTop: -0.03 * height}}>
+              <Text style={styles.dataText}>huurvoordeel oud</Text>
+              <Text style={styles.dataText}>huurvoordeel nieuw</Text>
+              <Text style={styles.dataText}>verschil</Text>
+            </Col>
+            <Col style={{alignItems:'center', marginTop: -0.03 * height}}>
+              <Text style={styles.dataText}>1.228,57</Text>
+              <Text style={styles.dataText}>1.154,86</Text>
+              <Text style={styles.dataText}>1.081,14</Text>
             </Col>
           </Grid>
         </View>
@@ -203,7 +179,7 @@ const styles = StyleSheet.create({
   data1: {
     backgroundColor: '#0D2C42',
     top: 0.017 * height,
-    height: 0.25* height,
+    height: 0.15* height,
     width: 0.92 * width,
     left: 0.04 * width,
     borderRadius: 2
@@ -211,7 +187,15 @@ const styles = StyleSheet.create({
   data2: {
     backgroundColor: '#0D2C42',
     top: 0.05 * height,
-    height: 0.25* height,
+    height: 0.15* height,
+    width: 0.92 * width,
+    left: 0.04 * width,
+    borderRadius: 2
+  },
+  data3: {
+    backgroundColor: '#0D2C42',
+    top: 0.08 * height,
+    height: 0.15* height,
     width: 0.92 * width,
     left: 0.04 * width,
     borderRadius: 2
@@ -221,30 +205,22 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     fontSize: 11,
     paddingBottom: 0.01 * height,
-    paddingTop: 0.01 * height
-  },
-  dataRowRight: {
-    borderBottomWidth: 0.5,
-    borderColor: '#305468',
-    marginRight: 0.02 *width
-  },
-  dataRow: {
-    borderBottomWidth: 0.5,
-    borderColor: '#305468',
+    paddingTop: 0.01 * height,
   },
   dataRowLeft: {
     borderBottomWidth: 0.5,
     borderColor: '#305468',
     marginLeft: 0.02 * width,
+    marginRight: 0.02 * width,
   },
   dataText: {
     color: 'white',
     fontSize: 10,
-    paddingTop: 6
+    paddingTop: 6,
   },
   social: {
     height: 40,
     width: 40,
-    top: 0.2 * height
+    top: 0.27 * height
   }
 });

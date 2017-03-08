@@ -6,10 +6,13 @@ import {
   Text,
   View,
   Image,
-  Linking
+  Linking,
+  Dimensions
 } from 'react-native';
-import { SocialIcon } from 'react-native-elements'
+import { SocialIcon, Button } from 'react-native-elements'
 
+
+let { height, width } = Dimensions.get('window')
 
 export class Home extends Component {
 
@@ -20,23 +23,31 @@ export class Home extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.logo}>
-          <Image
-            source={require('../img/logo.jpg')}
-          />
+      <View>
+        <View style={styles.header}>
+          <View style={styles.logo}>
+            <Image
+              source={require('../img/logo.jpg')}
+            />
+          </View>
         </View>
-        <View style={{flex: 1, flexDirection: 'row'}}>
-          <TouchableHighlight onPress={ this.navigate.bind(this,'first') } style={styles.buttonRegister}>
-            <Text style={styles.buttonText}>BIK company car</Text>
-          </TouchableHighlight>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row'}}>
-          <TouchableHighlight onPress={ this.navigate.bind(this, 'first') } style={styles.buttonLogin}>
-            <Text style={styles.buttonText}>BIK house</Text>
-          </TouchableHighlight>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row'}}>
+        <Button
+          title='VAA bedrijswagen'
+          icon={{name: 'drive-eta'}}
+          onPress= {this.navigate.bind(this, 'first')}
+          backgroundColor= '#002445'
+          buttonStyle={{top: 0.15 * height, height: 30}}
+          borderRadius={3}
+        />
+        <Button
+          title='VAA woning'
+          icon={{name: 'store-mall-directory'}}
+          onPress= {this.navigate.bind(this, 'second')}
+          backgroundColor= '#002445'
+          buttonStyle={{top: 0.16 * height, height: 30}}
+          borderRadius={3}
+        />
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <SocialIcon
             type= 'twitter'
             style= {styles.social}
@@ -76,13 +87,8 @@ export class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    padding: 10,
-    paddingTop: 150
+  header: {
+    alignItems: 'center'
   },
   logo: {
     width: 50,
@@ -90,40 +96,11 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 30,
-    top: 50
-  },
-  buttonLogin: {
-    height: 30,
-    backgroundColor: '#002445',
-    width: 350,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 3
-
-  },
-  buttonRegister: {
-    height: 30,
-    backgroundColor: '#002445',
-    width: 350,
-    alignItems: 'center',
-    marginTop: 180,
-    justifyContent: 'center',
-    borderRadius: 3
-  },
-  buttonText: {
-    fontSize: 14,
-    color: 'white',
-    alignSelf: 'center'
-  },
-  description: {
-    fontSize:12,
-    color: '#a1b2ce',
-    marginBottom: 20
+    marginTop: 0.35 * height
   },
   social: {
     height: 40,
     width: 40,
-    top: 70
+    top: 0.35 * height
   }
 });

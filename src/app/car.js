@@ -88,6 +88,8 @@ export class Car extends Component {
             icon={{name: 'done'}}
             buttonStyle={styles.button}
             borderRadius={3}
+            backgroundColor= '#002445'
+            onPress= { this.navigate.bind(this, 'cardata') }
           />
 
         </View>
