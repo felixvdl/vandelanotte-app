@@ -9,7 +9,8 @@ import {
   TextInput,
   Picker
 } from 'react-native';
-import { SocialIcon } from 'react-native-elements'
+import { SocialIcon, Icon, FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
+
 
 
 export class Car extends Component {
@@ -21,44 +22,76 @@ export class Car extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-          <Text style={styles.heading}>
-            Join us now!
-          </Text>
-           <TextInput
-            onChangeText={ (text)=> this.setState({email: text}) }
-            style={styles.input} placeholder="List price (incl. the VAT actually paid)"
-            clearButtonMode= 'while-editing'>
-          </TextInput>
+      <View>
+        <View style={styles.header}>
+          <View style={styles.return}>
+            <Icon
+              onPress={ this.navigate.bind(this, 'home') }
+              name='keyboard-arrow-left'
+              color= 'green'
+              size= {40}
+            />
+          </View>
+          <Image
+            source={require('../img/icon.png')}
+            style= {{width: 40, height: 40}}
+          />
+        </View>
+        <View style={styles.container}>
+            {/* <TextInput
+              onChangeText={ (text)=> this.setState({email: text}) }
+              style={styles.input} placeholder="List price (incl. the VAT actually paid)"
+              clearButtonMode= 'while-editing'>
+            </TextInput>
+            <TextInput
+              onChangeText={ (text)=> this.setState({password: text}) }
+              style={styles.input}
+              placeholder="Diesel or Petrol"
+              secureTextEntry={true}
+              clearButtonMode= 'while-editing'>
+            </TextInput>
 
-  {/*
-          <TextInput
-            onChangeText={ (text)=> this.setState({name: text}) }
-            style={styles.input} placeholder="Name">
-          </TextInput> */}
+            <TextInput
+              onChangeText={ (text)=> this.setState({password_confirmation: text}) }
+              style={styles.input}
+              placeholder="CO² emission (g/km)"
+              secureTextEntry={true}
+              clearButtonMode= 'while-editing'>
+            </TextInput>
 
-          <TextInput
-            onChangeText={ (text)=> this.setState({password: text}) }
-            style={styles.input}
-            placeholder="Diesel or Petrol"
-            secureTextEntry={true}
-            clearButtonMode= 'while-editing'>
-          </TextInput>
-
-          <TextInput
-            onChangeText={ (text)=> this.setState({password_confirmation: text}) }
-            style={styles.input}
+            <TouchableHighlight  style={styles.button}>
+              <Text style={styles.buttonText}>
+                calculate
+              </Text>
+            </TouchableHighlight> */}
+          </View>
+          <FormLabel>BIK Company Car</FormLabel>
+          <FormInput
+            inputStyle={styles.input}
+            keyboardType="numeric"
+            placeholder="List price (incl. the VAT actually paid)"
+            clearButtonMode= 'while-editing'
+          />
+          <FormInput
+            inputStyle={styles.input}
+            placeholder="Petrol or Diesel"
+            clearButtonMode= 'while-editing'
+          />
+          <FormInput
+            inputStyle={styles.input}
+            keyboardType="numeric"
             placeholder="CO² emission (g/km)"
-            secureTextEntry={true}
-            clearButtonMode= 'while-editing'>
-          </TextInput>
+            clearButtonMode= 'while-editing'
+          />
+          <Button
+            title='SUBMIT'
+            icon={{name: 'done'}}
+            buttonStyle={styles.button}
+            borderRadius={3}
+          />
 
-          <TouchableHighlight  style={styles.button}>
-            <Text style={styles.buttonText}>
-              calculate
-            </Text>
-          </TouchableHighlight>
-        </View>    );
+        </View>
+        );
   }
 }
 
@@ -67,39 +100,28 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     padding: 10,
     paddingTop: 120
   },
-  input: {
-    height: 50,
-    marginTop: 10,
-    padding: 4,
-    fontSize: 18,
-    borderWidth: 0.5,
-    borderColor: '#e2e6e9'
+  header: {
+    borderBottomWidth: 1,
+    borderColor: 'lightgrey',
+    alignItems: 'center',
+    top: -20
+  },
+  return: {
+    left: -165,
+    top: 40
   },
   button: {
-    height: 50,
-    backgroundColor: '#002445',
-    alignSelf: 'stretch',
-    marginTop: 10,
-    justifyContent: 'center'
+    top: 15
   },
-  buttonText: {
-    fontSize: 22,
-    color: '#FFF',
-    alignSelf: 'center'
-  },
-  heading: {
-    fontSize: 30,
-    color: 'white'
-  },
-  error: {
-    color: 'red',
-    paddingTop: 10
-  },
-  loader: {
-    marginTop: 20
-  }
+  // input: {
+  //   paddingTop: 30,
+  //   paddingBottom: 20
+  // }
+
+
+
 });
