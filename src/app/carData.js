@@ -41,7 +41,7 @@ export class CarData extends Component {
           />
         </View>
         <View style={styles.result}>
-          <Text style={{color: '#1F95D2', fontWeight: 'bold'}}> Results </Text>
+          <Text style={{color: '#1F95D2', fontWeight: 'bold'}}>Resultaat</Text>
         </View>
         <View style={styles.percentage}>
           <Text style={{color: 'white', fontSize: 11}}> Percentage: 8,06%</Text>
@@ -52,16 +52,16 @@ export class CarData extends Component {
               <View style={styles.dataRowLeft}>
                 <Text style={styles.dataHeader}>                                                                 </Text>
               </View>
-              <Text style={styles.dataText}> 0 - 1 year</Text>
-              <Text style={styles.dataText}> 2 year</Text>
-              <Text style={styles.dataText}> 3 year</Text>
-              <Text style={styles.dataText}> 4 year</Text>
-              <Text style={styles.dataText}> 5 year</Text>
-              <Text style={styles.dataText}> 5 + year</Text>
+              <Text style={styles.dataText}> 0 - 1 jaar</Text>
+              <Text style={styles.dataText}> 2 jaar</Text>
+              <Text style={styles.dataText}> 3 jaar</Text>
+              <Text style={styles.dataText}> 4 jaar</Text>
+              <Text style={styles.dataText}> 5 jaar</Text>
+              <Text style={styles.dataText}> 5 + jaar</Text>
             </Col>
             <Col>
               <View style={styles.dataRow}>
-                <Text style={styles.dataHeader}>BIK (6/7)</Text>
+                <Text style={styles.dataHeader}>VAA (6/7)</Text>
               </View>
               <Text style={styles.dataText}>14.742,86</Text>
               <Text style={styles.dataText}>13.858,29</Text>
@@ -72,7 +72,7 @@ export class CarData extends Component {
             </Col>
             <Col>
               <View style={styles.dataRowRight}>
-                <Text style={styles.dataHeader}>BIK (MONTH)</Text>
+                <Text style={styles.dataHeader}>VAA (MAAND)</Text>
               </View>
               <Text style={styles.dataText}>1.228,57</Text>
               <Text style={styles.dataText}>1.154,86</Text>
@@ -90,16 +90,16 @@ export class CarData extends Component {
               <View style={styles.dataRowLeft}>
                 <Text style={styles.dataHeader}>   {"\n"}                                        </Text>
               </View>
-              <Text style={styles.dataText}> 0 - 1 year</Text>
-              <Text style={styles.dataText}> 2 year</Text>
-              <Text style={styles.dataText}> 3 year</Text>
-              <Text style={styles.dataText}> 4 year</Text>
-              <Text style={styles.dataText}> 5 year</Text>
-              <Text style={styles.dataText}> 5 + year</Text>
+              <Text style={styles.dataText}> 0 - 1 jaar</Text>
+              <Text style={styles.dataText}> 2 jaar</Text>
+              <Text style={styles.dataText}> 3 jaar</Text>
+              <Text style={styles.dataText}> 4 jaar</Text>
+              <Text style={styles.dataText}> 5 jaar</Text>
+              <Text style={styles.dataText}> 5 + jaar</Text>
             </Col>
             <Col>
               <View style={styles.dataRow}>
-                <Text style={styles.dataHeader}>Rejected expense/year</Text>
+                <Text style={styles.dataHeader}>Verworpen uitgave/jaar </Text>
               </View>
               <Text style={styles.dataText}>14.742,86</Text>
               <Text style={styles.dataText}>13.858,29</Text>
@@ -110,7 +110,7 @@ export class CarData extends Component {
             </Col>
             <Col>
               <View style={styles.dataRow}>
-                <Text style={styles.dataHeader}>Corporate {"\n"}tax</Text>
+                <Text style={styles.dataHeader}>Ven. {"\n"}belasting</Text>
               </View>
               <Text style={styles.dataText}>14.742,86</Text>
               <Text style={styles.dataText}>13.858,29</Text>
@@ -121,7 +121,7 @@ export class CarData extends Component {
             </Col>
             <Col>
               <View style={styles.dataRowRight}>
-                <Text style={styles.dataHeader}>Income Tax (À 52,50 %)</Text>
+                <Text style={styles.dataHeader}>PB (À 52,50 %)</Text>
               </View>
               <Text style={styles.dataText}>1.228,57</Text>
               <Text style={styles.dataText}>1.154,86</Text>

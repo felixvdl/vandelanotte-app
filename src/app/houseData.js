@@ -221,6 +221,6 @@ const styles = StyleSheet.create({
   social: {
     height: 40,
     width: 40,
-    top: 0.27 * height
+    top: 0.28 * height
   }
 });

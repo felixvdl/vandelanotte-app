@@ -65,26 +65,26 @@ export class Car extends Component {
               </Text>
             </TouchableHighlight> */}
           </View>
-          <FormLabel>BIK Company Car</FormLabel>
+          <FormLabel>Voordeel van alle aard bedrijfswagen</FormLabel>
           <FormInput
             inputStyle={styles.input}
             keyboardType="numeric"
-            placeholder="List price (incl. the VAT actually paid)"
+            placeholder="Catalogusprijs (incl. werkelijk betaalde BTW)"
             clearButtonMode= 'while-editing'
           />
           <FormInput
             inputStyle={styles.input}
-            placeholder="Petrol or Diesel"
+            placeholder="Brandstof"
             clearButtonMode= 'while-editing'
           />
           <FormInput
             inputStyle={styles.input}
             keyboardType="numeric"
-            placeholder="CO² emission (g/km)"
+            placeholder="CO² uitstoot (g/km)"
             clearButtonMode= 'while-editing'
           />
           <Button
-            title='SUBMIT'
+            title='BEREKEN'
             icon={{name: 'done'}}
             buttonStyle={styles.button}
             borderRadius={3}
