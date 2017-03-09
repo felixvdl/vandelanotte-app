@@ -37,6 +37,7 @@ export class Car extends Component {
     });
   }
   render() {
+    console.log(this.state.brandstof)
     return (
       <View>
         <View style={styles.header}>

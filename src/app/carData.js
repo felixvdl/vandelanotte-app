@@ -22,13 +22,25 @@ export class CarData extends Component {
     this.state = {
       prijs: this.props.prijs,
       brandstof: this.props.brandstof,
-      uitstoot: this.props.uitstoot
+      uitstoot: this.props.uitstoot,
+      voordeelNieuw: ""
     }
   }
   navigate(routeName) {
     this.props.navigator.push({
       name: routeName
     });
+  }
+  componentDidMount() {
+    if (this.state.brandstof == 'diesel') {
+      this.setState({
+        voordeelNieuw: ((this.state.prijs * (5.5 + (0.1 * (this.state.uitstoot - 89)))/100)*(6/7)).toFixed(2)
+      })
+    } else {
+      this.setState({
+        voordeelNieuw: ((this.state.prijs * (5.5 + (0.1 * (this.state.uitstoot - 107)))/100)*(6/7)).toFixed(2)
+      })
+    }
   }
   render() {
     return (
@@ -70,23 +82,23 @@ export class CarData extends Component {
               <View style={styles.dataRow}>
                 <Text style={styles.dataHeader}>VAA (6/7)</Text>
               </View>
-              <Text style={styles.dataText}>14.742,86</Text>
-              <Text style={styles.dataText}>13.858,29</Text>
-              <Text style={styles.dataText}>12.973,71</Text>
-              <Text style={styles.dataText}>12.089,14</Text>
-              <Text style={styles.dataText}>11.204,57</Text>
-              <Text style={styles.dataText}>10.320,00</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw) > 1250 ? (this.state.voordeelNieuw) : 1250}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.94).toFixed(2) > 1250 ? (this.state.voordeelNieuw * 0.94).toFixed(2) : 1250}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.88).toFixed(2) > 1250 ? (this.state.voordeelNieuw * 0.88).toFixed(2) : 1250}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.82).toFixed(2) > 1250 ? (this.state.voordeelNieuw * 0.82).toFixed(2) : 1250}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.76).toFixed(2) > 1250 ? (this.state.voordeelNieuw * 0.76).toFixed(2) : 1250}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.70).toFixed(2) > 1250 ? (this.state.voordeelNieuw * 0.70).toFixed(2) : 1250}</Text>
             </Col>
             <Col>
               <View style={styles.dataRowRight}>
                 <Text style={styles.dataHeader}>VAA (MAAND)</Text>
               </View>
-              <Text style={styles.dataText}>1.228,57</Text>
-              <Text style={styles.dataText}>1.154,86</Text>
-              <Text style={styles.dataText}>1.081,14</Text>
-              <Text style={styles.dataText}>1.007,43</Text>
-              <Text style={styles.dataText}>933,71</Text>
-              <Text style={styles.dataText}>860,00</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw) > 1250 ? ((this.state.voordeelNieuw)/12).toFixed(2) : (1250/12).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.94).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.94)/12).toFixed(2) : (1250/12).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.88).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.88)/12).toFixed(2) : (1250/12).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.82).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.82)/12).toFixed(2) : (1250/12).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.76).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.76)/12).toFixed(2) : (1250/12).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.70).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.70)/12).toFixed(2) : (1250/12).toFixed(2)}</Text>
             </Col>
           </Grid>
 
