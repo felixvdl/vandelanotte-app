@@ -170,11 +170,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'lightgrey',
     alignItems: 'center',
-    top: -20
+    top: -0.03 * height
   },
   return: {
-    left: -165,
-    top: 40
+    left: -0.25 * height,
+    top: 0.06 * height
   },
   result: {
     alignItems: 'center',

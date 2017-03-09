@@ -7,18 +7,22 @@ import {
   View,
   Image,
   TextInput,
-  Picker
+  PickerIOS,
+  Item,
+  PickerItemIOS,
+  Dimensions
 } from 'react-native';
 import { SocialIcon, Icon, FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
 
 
+let { height, width } = Dimensions.get('window')
 
 export class Car extends Component {
   constructor() {
     super()
     this.state = {
       prijs: "",
-      brandstof: "",
+      brandstof: "benzine",
       uitstoot: ""
     }
   }
@@ -49,6 +53,7 @@ export class Car extends Component {
             style= {{width: 40, height: 40}}
           />
         </View>
+        <View style={{marginTop: 0.2 * height}}>
           <FormLabel>Voordeel van alle aard bedrijfswagen</FormLabel>
           <FormInput
             inputStyle={styles.input}
@@ -59,17 +64,31 @@ export class Car extends Component {
           />
           <FormInput
             inputStyle={styles.input}
-            onChangeText={ (text)=> this.setState({brandstof: text}) }
-            placeholder="Brandstof"
-            clearButtonMode= 'while-editing'
-          />
-          <FormInput
-            inputStyle={styles.input}
             onChangeText={ (text)=> this.setState({uitstoot: text}) }
             keyboardType="numeric"
             placeholder="CO² uitstoot (g/km)"
             clearButtonMode= 'while-editing'
           />
+          <View style={{alignItems: 'center'}}>
+            <PickerIOS
+              selectedValue={this.state.uitstoot}
+              onValueChange= {(label) => this.setState({brandstof: label})}
+              style={styles.picker}
+              itemStyle={{fontSize: 14, top: -0.1 * height}}
+            >
+              <PickerItemIOS
+                key="benzine"
+                value="benzine"
+                label="benzine"
+              />
+              <PickerItemIOS
+                key="diesel"
+                value="diesel"
+                label="diesel"
+              />
+            </PickerIOS>
+          </View>
+        </View>
           <Button
             title='BEREKEN'
             icon={{name: 'done'}}
@@ -90,27 +109,24 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: 'transparent',
-    padding: 10,
-    paddingTop: 120
   },
   header: {
     borderBottomWidth: 1,
     borderColor: 'lightgrey',
     alignItems: 'center',
-    top: -20
+    top: -0.03 * height
   },
   return: {
-    left: -165,
-    top: 40
+    left: -0.25 * height,
+    top: 0.06 * height
   },
   button: {
-    top: 15
+    top: 0.02* height
   },
-  // input: {
-  //   paddingTop: 30,
-  //   paddingBottom: 20
-  // }
-
-
-
+  picker: {
+    width: 0.89 * width,
+    height: 0.20 * height,
+    top: 0.07 * height,
+    backgroundColor: 'transparent'
+  }
 });

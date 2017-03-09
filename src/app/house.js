@@ -7,26 +7,40 @@ import {
   View,
   Image,
   TextInput,
-  Picker
+  PickerIOS,
+  Dimensions,
+  Item,
+  UIExplorerBlock
 } from 'react-native';
 import { SocialIcon, Icon, FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
 
 
+let { height, width } = Dimensions.get('window')
 
 export class House extends Component {
   constructor() {
     super()
     this.state = {
-      ki: ""
+      ki: "",
+      error: ""
     }
   }
-  navigate(routeName) {
+  goBack(routeName) {
     this.props.navigator.push({
       name: routeName,
-      passProps: {
-        ki: this.state.ki,
-      }
-    });
+    })
+  }
+  navigate(routeName) {
+    if (this.state.ki > 745) {
+      this.props.navigator.push({
+        name: routeName,
+        passProps: {
+          ki: this.state.ki,
+        }
+      })
+    } else {
+      this.setState({error: "kadastraal inkomen moet boven 745 zijn"})
+    };
   }
   render() {
     return (
@@ -34,7 +48,7 @@ export class House extends Component {
         <View style={styles.header}>
           <View style={styles.return}>
             <Icon
-              onPress={ this.navigate.bind(this, 'home') }
+              onPress={ this.goBack.bind(this, 'home') }
               name='keyboard-arrow-left'
               color= 'green'
               size= {40}
@@ -46,32 +60,6 @@ export class House extends Component {
           />
         </View>
         <View style={styles.container}>
-            {/* <TextInput
-              onChangeText={ (text)=> this.setState({email: text}) }
-              style={styles.input} placeholder="List price (incl. the VAT actually paid)"
-              clearButtonMode= 'while-editing'>
-            </TextInput>
-            <TextInput
-              onChangeText={ (text)=> this.setState({password: text}) }
-              style={styles.input}
-              placeholder="Diesel or Petrol"
-              secureTextEntry={true}
-              clearButtonMode= 'while-editing'>
-            </TextInput>
-
-            <TextInput
-              onChangeText={ (text)=> this.setState({password_confirmation: text}) }
-              style={styles.input}
-              placeholder="CO² emission (g/km)"
-              secureTextEntry={true}
-              clearButtonMode= 'while-editing'>
-            </TextInput>
-
-            <TouchableHighlight  style={styles.button}>
-              <Text style={styles.buttonText}>
-                calculate
-              </Text>
-            </TouchableHighlight> */}
           </View>
           <FormLabel>Voordeel van alle aard woning</FormLabel>
           <FormInput
@@ -89,7 +77,9 @@ export class House extends Component {
             backgroundColor= '#002445'
             onPress= { this.navigate.bind(this, 'housedata') }
           />
-
+          <View style={{alignItems:'center'}}>
+            <Text style={styles.error}>{this.state.error}</Text>
+          </View>
         </View>
         );
   }
@@ -108,20 +98,18 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'lightgrey',
     alignItems: 'center',
-    top: -20
+    top: -0.03 * height
   },
   return: {
-    left: -165,
-    top: 40
+    left: -0.25 * height,
+    top: 0.06 * height
   },
   button: {
     top: 15
   },
-  // input: {
-  //   paddingTop: 30,
-  //   paddingBottom: 20
-  // }
-
-
-
+  error: {
+    color: 'red',
+    top: 0.03 * height,
+    fontSize: 12
+  }
 });

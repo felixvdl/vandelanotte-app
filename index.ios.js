@@ -17,7 +17,6 @@ import { HouseData } from './src/app/houseData'
 class Main extends Component {
 
   renderScene(route, navigator) {
-    console.log(route.passProps)
     if(route.name == 'home') {
       return <Home navigator={navigator} />
     }
