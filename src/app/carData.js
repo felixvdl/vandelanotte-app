@@ -120,34 +120,34 @@ export class CarData extends Component {
               <View style={styles.dataRow}>
                 <Text style={styles.dataHeader}>Verworpen uitgave/jaar </Text>
               </View>
-              <Text style={styles.dataText}>14.742,86</Text>
-              <Text style={styles.dataText}>13.858,29</Text>
-              <Text style={styles.dataText}>12.973,71</Text>
-              <Text style={styles.dataText}>12.089,14</Text>
-              <Text style={styles.dataText}>11.204,57</Text>
-              <Text style={styles.dataText}>10.320,00</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw) > 1250 ? ((this.state.voordeelNieuw)*0.17).toFixed(2) : 1250*0.17}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.94).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.94)*0.17).toFixed(2) : (1250*0.17).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.88).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.88)*0.17).toFixed(2) : (1250*0.17).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.82).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.82)*0.17).toFixed(2) : (1250*0.17).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.76).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.76)*0.17).toFixed(2) : (1250*0.17).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.70).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.70)*0.17).toFixed(2) : (1250*0.17).toFixed(2)}</Text>
             </Col>
             <Col>
               <View style={styles.dataRow}>
                 <Text style={styles.dataHeader}>Ven. {"\n"}belasting</Text>
               </View>
-              <Text style={styles.dataText}>14.742,86</Text>
-              <Text style={styles.dataText}>13.858,29</Text>
-              <Text style={styles.dataText}>12.973,71</Text>
-              <Text style={styles.dataText}>12.089,14</Text>
-              <Text style={styles.dataText}>11.204,57</Text>
-              <Text style={styles.dataText}>10.320,00</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw) > 1250 ? ((this.state.voordeelNieuw)*0.17 * 0.3399).toFixed(2) : 1250*0.17}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.94).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.94)*0.17 * 0.3399).toFixed(2) : (1250*0.17 * 0.3399).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.88).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.88)*0.17 * 0.3399).toFixed(2) : (1250*0.17 * 0.3399).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.82).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.82)*0.17 * 0.3399).toFixed(2) : (1250*0.17 * 0.3399).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.76).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.76)*0.17 * 0.3399).toFixed(2) : (1250*0.17 * 0.3399).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.70).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.70)*0.17 * 0.3399).toFixed(2) : (1250*0.17 * 0.3399).toFixed(2)}</Text>
             </Col>
             <Col>
               <View style={styles.dataRowRight}>
                 <Text style={styles.dataHeader}>PB (À 52,50 %)</Text>
               </View>
-              <Text style={styles.dataText}>1.228,57</Text>
-              <Text style={styles.dataText}>1.154,86</Text>
-              <Text style={styles.dataText}>1.081,14</Text>
-              <Text style={styles.dataText}>1.007,43</Text>
-              <Text style={styles.dataText}>933,71</Text>
-              <Text style={styles.dataText}>860,00</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw) > 1250 ? ((this.state.voordeelNieuw)*0.525).toFixed(2) : 1250*0.525}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.94).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.94) * 0.525).toFixed(2) : (1250*0.525).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.88).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.88) * 0.525).toFixed(2) : (1250*0.525).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.82).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.82) * 0.525).toFixed(2) : (1250*0.525).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.76).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.76) * 0.525).toFixed(2) : (1250*0.525).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.voordeelNieuw * 0.70).toFixed(2) > 1250 ? ((this.state.voordeelNieuw * 0.70) * 0.525).toFixed(2) : (1250*0.525).toFixed(2)}</Text>
             </Col>
           </Grid>
         </View>
