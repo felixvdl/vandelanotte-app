@@ -14,10 +14,22 @@ import { SocialIcon, Icon, FormLabel, FormInput, FormValidationMessage, Button }
 
 
 export class Car extends Component {
-
+  constructor() {
+    super()
+    this.state = {
+      prijs: "",
+      brandstof: "",
+      uitstoot: ""
+    }
+  }
   navigate(routeName) {
     this.props.navigator.push({
-      name: routeName
+      name: routeName,
+      passProps: {
+        prijs: this.state.prijs,
+        brandstof: this.state.brandstof,
+        uitstoot: this.state.uitstoot
+      }
     });
   }
   render() {
@@ -37,48 +49,23 @@ export class Car extends Component {
             style= {{width: 40, height: 40}}
           />
         </View>
-        <View style={styles.container}>
-            {/* <TextInput
-              onChangeText={ (text)=> this.setState({email: text}) }
-              style={styles.input} placeholder="List price (incl. the VAT actually paid)"
-              clearButtonMode= 'while-editing'>
-            </TextInput>
-            <TextInput
-              onChangeText={ (text)=> this.setState({password: text}) }
-              style={styles.input}
-              placeholder="Diesel or Petrol"
-              secureTextEntry={true}
-              clearButtonMode= 'while-editing'>
-            </TextInput>
-
-            <TextInput
-              onChangeText={ (text)=> this.setState({password_confirmation: text}) }
-              style={styles.input}
-              placeholder="CO² emission (g/km)"
-              secureTextEntry={true}
-              clearButtonMode= 'while-editing'>
-            </TextInput>
-
-            <TouchableHighlight  style={styles.button}>
-              <Text style={styles.buttonText}>
-                calculate
-              </Text>
-            </TouchableHighlight> */}
-          </View>
           <FormLabel>Voordeel van alle aard bedrijfswagen</FormLabel>
           <FormInput
             inputStyle={styles.input}
+            onChangeText={ (text)=> this.setState({prijs: text}) }
             keyboardType="numeric"
             placeholder="Catalogusprijs (incl. werkelijk betaalde BTW)"
             clearButtonMode= 'while-editing'
           />
           <FormInput
             inputStyle={styles.input}
+            onChangeText={ (text)=> this.setState({brandstof: text}) }
             placeholder="Brandstof"
             clearButtonMode= 'while-editing'
           />
           <FormInput
             inputStyle={styles.input}
+            onChangeText={ (text)=> this.setState({uitstoot: text}) }
             keyboardType="numeric"
             placeholder="CO² uitstoot (g/km)"
             clearButtonMode= 'while-editing'

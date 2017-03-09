@@ -17,13 +17,21 @@ import {Grid, Col, Icon, SocialIcon} from 'react-native-elements';
 let { height, width } = Dimensions.get('window')
 
 export class CarData extends Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      prijs: this.props.prijs,
+      brandstof: this.props.brandstof,
+      uitstoot: this.props.uitstoot
+    }
+  }
   navigate(routeName) {
     this.props.navigator.push({
       name: routeName
     });
   }
   render() {
+    console.log(this.state.prijs)
     return (
       <View style={styles.container}>
         <View style={styles.header}>

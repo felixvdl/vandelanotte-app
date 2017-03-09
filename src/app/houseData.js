@@ -17,13 +17,26 @@ import {Grid, Col, Icon, SocialIcon} from 'react-native-elements';
 let { height, width } = Dimensions.get('window')
 
 export class HouseData extends Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      ki: this.props.ki,
+      indexki: "",
+    }
+  }
   navigate(routeName) {
     this.props.navigator.push({
       name: routeName
     });
   }
+  componentDidMount() {
+    this.setState({
+      indexki: (this.state.ki * 1.7057).toFixed(2),
+    })
+
+  }
   render() {
+    console.log(this.state.ki)
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -58,8 +71,8 @@ export class HouseData extends Component {
               <Text style={styles.dataText}>geïndexeerd kad. inkomen</Text>
             </Col>
             <Col style={{alignItems:'center', marginTop: -0.03 * height}}>
-              <Text style={styles.dataText}>1.228,57</Text>
-              <Text style={styles.dataText}>1.154,86</Text>
+              <Text style={styles.dataText}>{this.state.ki}</Text>
+              <Text style={styles.dataText}>{this.state.indexki}</Text>
 
             </Col>
           </Grid>
@@ -81,9 +94,9 @@ export class HouseData extends Component {
             </Col>
             <Col style={{alignItems:'center', marginTop: -0.03 * height}}>
 
-              <Text style={styles.dataText}>1.228,57</Text>
-              <Text style={styles.dataText}>1.154,86</Text>
-              <Text style={styles.dataText}>1.081,14</Text>
+              <Text style={styles.dataText}>{(this.state.indexki * 2 * (100/60)).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.indexki * 3.8 * (100/60)).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.indexki * 3.8 * (100/60)- this.state.indexki * 2 * (100/60)).toFixed(2)}</Text>
             </Col>
           </Grid>
         </View>
@@ -102,9 +115,9 @@ export class HouseData extends Component {
               <Text style={styles.dataText}>verschil</Text>
             </Col>
             <Col style={{alignItems:'center', marginTop: -0.03 * height}}>
-              <Text style={styles.dataText}>1.228,57</Text>
-              <Text style={styles.dataText}>1.154,86</Text>
-              <Text style={styles.dataText}>1.081,14</Text>
+              <Text style={styles.dataText}>{(this.state.indexki * 2 * (100/60) * (5/3)).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.indexki * 3.8 * (100/60) * (5/3)).toFixed(2)}</Text>
+              <Text style={styles.dataText}>{(this.state.indexki * 3.8 * (100/60) * (5/3)).toFixed(2) - (this.state.indexki * 2 * (100/60) * (5/3)).toFixed(2)}</Text>
             </Col>
           </Grid>
         </View>

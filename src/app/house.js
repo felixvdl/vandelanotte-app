@@ -14,10 +14,18 @@ import { SocialIcon, Icon, FormLabel, FormInput, FormValidationMessage, Button }
 
 
 export class House extends Component {
-
+  constructor() {
+    super()
+    this.state = {
+      ki: ""
+    }
+  }
   navigate(routeName) {
     this.props.navigator.push({
-      name: routeName
+      name: routeName,
+      passProps: {
+        ki: this.state.ki,
+      }
     });
   }
   render() {
@@ -69,6 +77,7 @@ export class House extends Component {
           <FormInput
             inputStyle={styles.input}
             keyboardType="numeric"
+            onChangeText={ (text)=> this.setState({ki: text}) }
             placeholder="Niet geïndexeerd kadastraal inkomen"
             clearButtonMode= 'while-editing'
           />

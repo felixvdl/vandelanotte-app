@@ -17,6 +17,7 @@ import { HouseData } from './src/app/houseData'
 class Main extends Component {
 
   renderScene(route, navigator) {
+    console.log(route.passProps)
     if(route.name == 'home') {
       return <Home navigator={navigator} />
     }
@@ -27,10 +28,10 @@ class Main extends Component {
       return <House navigator={navigator} />
     }
     if(route.name == 'cardata') {
-      return <CarData navigator={navigator} />
+      return <CarData navigator={navigator} {...route.passProps}/>
     }
     if(route.name == 'housedata') {
-      return <HouseData navigator={navigator} />
+      return <HouseData navigator={navigator} {...route.passProps}/>
     }
   }
   render() {
